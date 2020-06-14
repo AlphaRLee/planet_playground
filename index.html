@@ -23,25 +23,48 @@
 			<h1 class="text-light">
 				Planet Playground
 			</h1>
-			<p class="text-light">
-				A project by Richard Lee
+			<p class="m-1 text-light">Click and drag to launch planets. Press <b>R</b> to reset.</p>
+			<p class="m-1">
+				<a href="https://github.com/AlphaRLee" class="text-muted">
+					A project by Richard Lee
+				</a>
 			</p>
 		</div>
 		<div class="container-fluid m-0 p-0">
 			<div id="canvas-parent" class="row m-0 p-0"></div>			
 		</div>
-		<div class="fixed-bottom p-md-2 p-sm-1" style="background-color: #222;">
-			<button type="button" class="btn btn-outline-light mx-md-2 mx-sm-1" onclick="reset()">Reset</button>
-			<div class="btn-group dropup mx-md-2 mx-sm-1">
-				<button id="layout-selector-btn" type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					FIXME Replace layout text
-				</button>
-				<div id="layout-selector" class="dropdown-menu">
+		<div class="fixed-bottom p-md-3 p-sm-1" style="background-color: #222;">
+			<div class="container-fluid m-0 ">
+				<div class="row">
+					<div class="col-3">
+						<button type="button" class="btn btn-outline-light mx-md-2 mx-sm-1" onclick="reset()">Reset</button>
+						<div class="btn-group dropup ml-md-2 ml-sm-1 mr-md-4 mr-md-4">
+							<button id="layout-selector-btn" type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								
+							</button>
+							<div id="layout-selector" class="dropdown-menu">
+							</div>
+							<template id="layout-options-template">
+								<a class="dropdown-item" href="#"></a>
+							</template>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="slidecontainer">
+							<label for="planet-mass-control" class="text-light">Planet Mass</label>
+							<input id="planet-mass-control" type="range" class="slider" min="500" max="40000" value="2000" oninput="setNewPlanetMass(this.value)">
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="planet-fixed-control" onclick="setNewPlanetMobile(!this.checked)">
+							<label class="form-check-label text-light" for="planet-fixed-control">
+								Fixed
+							</label>
+						  </div>
+					</div>
 				</div>
 			</div>
-			<template id="layout-options-template">
-				<a class="dropdown-item" href="#"></a>
-			</template>
 		</div>
 		
 	</body>

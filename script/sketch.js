@@ -1,6 +1,7 @@
 let planets = [];
 let newPlanet = undefined;
-let newPlanetMass = 1000;
+let newPlanetMass = 2000;
+let newPlanetMobile = true;
 
 let massToRadius = (mass) => 0.165 * Math.sqrt(mass);
 
@@ -16,6 +17,10 @@ function setup() {
 	colorMode(HSB, 360, 100, 100);
 
 	setupPlanets(selectedLayout);
+}
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
 }
 
 function setupPlanets(layout) {
@@ -145,8 +150,17 @@ function drawNewPlanet(newPlanet) {
 	circle(newX, newY, 2 * newPlanet.radius);
 }
 
-function mousePressed() {
-	if (mouseButton != LEFT) {
+function setNewPlanetMass(value) {
+	newPlanetMass = parseFloat(value);
+}
+
+function setNewPlanetMobile(mobile) {
+	console.log("mobile: ", mobile);
+	newPlanetMobile = mobile;
+}
+
+function mousePressed(event) {
+	if (mouseButton != LEFT || event.target.tagName != "CANVAS") {
 		return;
 	}
 
@@ -154,10 +168,15 @@ function mousePressed() {
 		pos: createVector(mouseX, mouseY),
 		mass: newPlanetMass,
 		radius: massToRadius(newPlanetMass),
+		mobile: newPlanetMobile,
 	});
 }
 
 function mouseReleased() {
+	if (!newPlanet) {
+		return;
+	}
+
 	newPlanet.speed = newPlanet.pos
 		.copy()
 		.sub(createVector(mouseX, mouseY))
