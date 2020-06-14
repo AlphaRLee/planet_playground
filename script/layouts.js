@@ -5,7 +5,6 @@ const layouts = [
 		action: () => [
 			{
 				// Star
-				// pos: createVector(400, 400),
 				pos: createVector(windowWidth / 2, windowHeight / 2),
 				mass: 60000,
 				mobile: false,
@@ -37,6 +36,25 @@ const layouts = [
 				speed: createVector(0, 200),
 				mass: 26000,
 				radius: 25,
+			},
+		],
+	},
+	{
+		name: "Twin Suns",
+		action: () => [
+			{
+				// Star
+				pos: createVector(windowWidth / 2 - 300, windowHeight / 2),
+				mass: 60000,
+				mobile: false,
+				color: color(61, 99, 99),
+			},
+			{
+				// Star
+				pos: createVector(windowWidth / 2 + 300, windowHeight / 2),
+				mass: 60000,
+				mobile: false,
+				color: color(61, 99, 99),
 			},
 		],
 	},
