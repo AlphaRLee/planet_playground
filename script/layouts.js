@@ -4,18 +4,19 @@ class Layouts {
 		planets: [
 			{
 				// Star
-				pos: createVector(400, 400),
+				// pos: createVector(400, 400),
+				pos: createVector(windowWidth / 2, windowHeight / 2),
 				mass: 60000,
 				mobile: false,
 				color: color(61, 99, 99),
 			},
 			{
-				pos: createVector(400, 150),
+				pos: createVector(windowWidth / 2, windowHeight / 2 - 250),
 				speed: createVector(400, 0),
 				mass: 8000,
 			},
 			{
-				pos: createVector(400, 650),
+				pos: createVector(windowWidth / 2, windowHeight / 2 + 250),
 				speed: createVector(-400, 0),
 				mass: 8000,
 			},

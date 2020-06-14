@@ -5,7 +5,7 @@ let newPlanetMass = 1000;
 let massToRadius = (mass) => 0.165 * Math.sqrt(mass);
 
 function setup() {
-	let canvas = createCanvas(windowWidth, Math.min(windowHeight, 800), P2D);
+	let canvas = createCanvas(windowWidth, windowHeight, P2D);
 	canvas.parent("canvas-parent");
 	colorMode(HSB, 360, 100, 100);
 
@@ -149,7 +149,6 @@ function mousePressed() {
 		mass: newPlanetMass,
 		radius: massToRadius(newPlanetMass),
 	});
-	return false;
 }
 
 function mouseReleased() {
@@ -160,7 +159,6 @@ function mouseReleased() {
 
 	planets.push(newPlanet);
 	newPlanet = undefined;
-	return false;
 }
 
 function keyPressed() {
