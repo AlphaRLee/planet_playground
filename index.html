@@ -16,6 +16,7 @@
 		<script src="script/layouts.js"></script>
 		<script src="script/planet.js"></script>
 		<script src="script/sketch.js"></script>
+		<script src="script/selector.js"></script>
 	</head>
 	<body>
 		<div class="fixed-top p-2" style="background-color: #222">
@@ -32,14 +33,16 @@
 		<div class="fixed-bottom p-md-2 p-sm-1" style="background-color: #222;">
 			<button type="button" class="btn btn-outline-light mx-md-2 mx-sm-1" onclick="reset()">Reset</button>
 			<div class="btn-group dropup mx-md-2 mx-sm-1">
-				<button id="layout-selector" type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button id="layout-selector-btn" type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					FIXME Replace layout text
 				</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">ABC</a>
-					<a class="dropdown-item" href="#">Def</a>
+				<div id="layout-selector" class="dropdown-menu">
 				</div>
 			</div>
+			<template id="layout-options-template">
+				<a class="dropdown-item" href="#"></a>
+			</template>
 		</div>
+		
 	</body>
 </html>

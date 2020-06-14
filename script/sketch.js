@@ -4,24 +4,30 @@ let newPlanetMass = 1000;
 
 let massToRadius = (mass) => 0.165 * Math.sqrt(mass);
 
+let selectedLayout = layouts[0];
+
+function preload() {
+	populateLayoutSelector();
+}
+
 function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight, P2D);
 	canvas.parent("canvas-parent");
 	colorMode(HSB, 360, 100, 100);
 
-	setupPlanets();
+	setupPlanets(selectedLayout);
 }
 
-function setupPlanets() {
-	const layout = Layouts.getFixedStarLayout();
+function setupPlanets(layout) {
 	massToRadius = layout.massToRadius || massToRadius;
-	planets = layout.planets.map(
+	planets = layout.action().map(
 		(planetSettings) =>
 			new Planet({
 				...planetSettings,
 				radius: massToRadius(planetSettings.mass),
 			})
 	);
+	selectedLayout = layout;
 }
 
 function draw() {
@@ -170,5 +176,5 @@ function keyPressed() {
 }
 
 function reset() {
-	setupPlanets();
+	setupPlanets(selectedLayout);
 }

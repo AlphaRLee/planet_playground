@@ -1,7 +1,8 @@
-class Layouts {
-	static getFixedStarLayout = () => ({
+const layouts = [
+	{
+		name: "Single Star",
 		massToRadius: (mass) => 0.165 * Math.sqrt(mass),
-		planets: [
+		action: () => [
 			{
 				// Star
 				// pos: createVector(400, 400),
@@ -21,20 +22,22 @@ class Layouts {
 				mass: 8000,
 			},
 		],
-	});
-
-	static getBinaryLayout = () => [
-		{
-			pos: createVector(200, 400),
-			speed: createVector(0, -200),
-			mass: 26000,
-			radius: 25,
-		},
-		{
-			pos: createVector(600, 400),
-			speed: createVector(0, 200),
-			mass: 26000,
-			radius: 25,
-		},
-	];
-}
+	},
+	{
+		name: "Binary Planets",
+		action: () => [
+			{
+				pos: createVector(windowWidth / 2 - 200, windowHeight / 2),
+				speed: createVector(0, -200),
+				mass: 26000,
+				radius: 25,
+			},
+			{
+				pos: createVector(windowWidth / 2 + 200, windowHeight / 2),
+				speed: createVector(0, 200),
+				mass: 26000,
+				radius: 25,
+			},
+		],
+	},
+];
